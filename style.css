@@ -1,0 +1,29 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  width: 100%;
+  text-align: left;
+
+  position: fixed;
+  top: 0;
+  background-color: white;
+  padding: 20px 40px;
+}
+
+
+h1 {
+  color: black;
+  text-align: left;
+  font-size: 30px;
+  margin: 0;
+  font-family: 'Libre Baskerville', serif;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  text-align: center; 
+  gap: 70px;
+}
