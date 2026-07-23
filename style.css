@@ -12,7 +12,6 @@ header {
   padding: 20px 40px;
 }
 
-
 h1 {
   color: black;
   text-align: left;
@@ -20,7 +19,6 @@ h1 {
   margin: 0;
   font-family: 'Helvetica Neue', Arial, 'Segoe UI', sans-serif;
 }
-
 
 nav ul {
   list-style: none;
@@ -34,9 +32,9 @@ body {
 
   font-family: Georgia, Cambria, 'Times New Roman', serif; font-style: italic;
   /*font-weight: 300;
-  color: rgb(192, 131, 93);*/
+  color: rgb(192, 131, 93);
 
   margin: 0;
-  padding-top: 100px;
-  background-color: rgb(240, 230, 226);
+  padding-top: 100px;*/
+  background-color: rgb(200, 227, 233);
 }
