@@ -20,6 +20,18 @@ h1 {
   font-family: 'Helvetica Neue', Arial, 'Segoe UI', sans-serif;
 }
 
+body {
+  gap: 20px;
+
+  font-family: Georgia, Cambria, 'Times New Roman', serif; font-style: italic;
+  font-weight: 300;
+  color: rgb(192, 131, 93);
+
+  margin: 0;
+  padding-top: 100px;
+  background-color: rgb(200, 227, 233);
+}
+
 nav ul {
   list-style: none;
   display: flex;
@@ -27,14 +39,3 @@ nav ul {
   gap: 70px;
 }
 
-body {
-  gap: 20px;
-
-  font-family: Georgia, Cambria, 'Times New Roman', serif; font-style: italic;
-  /*font-weight: 300;
-  color: rgb(192, 131, 93);
-
-  margin: 0;
-  padding-top: 100px;*/
-  background-color: rgb(200, 227, 233);
-}
