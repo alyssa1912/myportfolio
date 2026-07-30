@@ -22,8 +22,8 @@ h1 {
 
 body {
   gap: 20px;
-
-  font-family: Georgia, Cambria, 'Times New Roman', serif; font-style: italic;
+  padding: 0;
+  font-family: "SF Pro Rounded", sans-serif;
   font-weight: 300;
   color: rgb(1, 6, 31);
 
@@ -38,6 +38,13 @@ nav ul {
   text-align: center; 
   gap: 70px;
 }
+
+a {
+  color: rgb(53, 48, 47);
+  text-decoration: none;  
+}
+
+
 
 .left-side {
   width: auto;
