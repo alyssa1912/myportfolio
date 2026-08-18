@@ -3,9 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>My Story</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <!-- INTRO -->
+    <section class="intro">
+
+        <p class="small-text">AN INTERACTIVE STORY</p>
+
+        <h1>
+            The Story<br>
+            Begins Here
+        </h1>
+
+        <p class="scroll">↓ SCROLL TO EXPLORE</p>
+
+    </section>
+
+
+    <!-- MAIN STORY -->
+    <section class="story">
+
+        <div class="story-content">
+
+            <!-- IMAGE -->
+            <div class="image-container">
+
+                <img
+                    src="images/image1.jpg"
+                    class="story-image"
+                    alt="Story image"
+                >
+
+            </div>
+
+
+            <!-- TEXT -->
+            <div class="story-text">
+
+                <p class="chapter">01 — THE BEGINNING</p>
+
+                <h2 class="story-title">
+                    It all started here.
+                </h2>
+
+                <p class="description">
+                    Every story has a beginning. 
+                    This is where our journey starts.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- END -->
+    <section class="ending">
+
+        <p>THE END</p>
+
+        <h2>
+            But every ending<br>
+            creates another beginning.
+        </h2>
+
+    </section>
+
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/gsap.min.js"></script>
+
+    <!-- ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/ScrollTrigger.min.js"></script>
+
+    <!-- Your JavaScript -->
+    <script src="script.js"></script>
+
 </body>
 </html>
