@@ -109,7 +109,7 @@ timeline.to(
 timeline.call(() => {
 
     document.querySelector(".story-image").src =
-        "img/image2.jpg";
+        "images/image2.jpg";
 
 });
 
@@ -219,7 +219,7 @@ timeline.to(
 timeline.call(() => {
 
     document.querySelector(".story-image").src =
-        "img/image3.jpg";
+        "images/image3.jpg";
 
 });
 
