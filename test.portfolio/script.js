@@ -1,2 +1,2 @@
-// Page loaded
-console.log("Portfolio hero ready");
+console.log("Hero section loaded.");
+

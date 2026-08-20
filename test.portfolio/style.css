@@ -1,7 +1,8 @@
+/* GLOBAL */
 body {
     margin: 0;
-    font-family: "Playfair Display", serif;
     background: #ffffff;
+    font-family: "Poppins", sans-serif;
 }
 
 /* HERO SECTION */
@@ -9,49 +10,42 @@ body {
     display: flex;
     height: 100vh;
     width: 100%;
+    position: relative;
+}
+
+/* NAME TOP LEFT */
+.name {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #3b2a26;
+    z-index: 10;
 }
 
 /* LEFT SIDE */
 .left-side {
-    width: 50%;
-    background: #f7c9d4; /* pastel pink */
+    width: 33%;
+    background: #f7c9d4; /* exact pink */
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* DOTS ON LEFT */
-.left-side::before,
-.left-side::after {
-    content: "";
-    position: absolute;
-    background: rgba(255,255,255,0.4);
-    border-radius: 50%;
-}
-
-.left-side::before {
-    width: 120px;
-    height: 120px;
-    top: 18%;
-    left: 12%;
-}
-
-.left-side::after {
-    width: 60px;
-    height: 60px;
-    bottom: 18%;
-    left: 28%;
-}
-
 /* CIRCLE IMAGE */
 .circle-image {
-    width: 330px;
-    height: 330px;
+    width: 340px;
+    height: 340px;
     border-radius: 50%;
     overflow: hidden;
-    border: 8px solid white;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: 10px solid white;
+    position: absolute;
+    right: -170px; /* sits exactly on the split */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .circle-image img {
@@ -60,56 +54,81 @@ body {
     object-fit: cover;
 }
 
-/* RIGHT SIDE */
-.right-side {
-    width: 50%;
-    background: #3b2a28; /* dark brown */
-    color: white;
-    padding-left: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-}
-
-/* DOTS ON RIGHT */
-.right-side::before,
-.right-side::after {
-    content: "";
+/* DECORATIVE SMALL CIRCLES */
+.decor {
     position: absolute;
-    background: rgba(255,255,255,0.15);
     border-radius: 50%;
 }
 
-.right-side::before {
-    width: 140px;
-    height: 140px;
-    top: 25%;
-    right: 15%;
+.decor1 {
+    width: 120px;
+    height: 120px;
+    background: #fcecd6; /* off-white */
+    top: 18%;
+    left: 10%;
 }
 
-.right-side::after {
+.decor2 {
     width: 70px;
     height: 70px;
-    bottom: 20%;
-    right: 30%;
+    background: #f7c9d4; /* pink */
+    top: 65%;
+    left: 20%;
 }
 
-/* TEXT */
+.decor3 {
+    width: 50px;
+    height: 50px;
+    background: #fcecd6;
+    top: 80%;
+    left: 35%;
+}
+
+.decor4 {
+    width: 90px;
+    height: 90px;
+    background: #f7c9d4;
+    top: 40%;
+    left: 5%;
+}
+
+/* RIGHT SIDE */
+.right-side {
+    width: 67%;
+    background: #3b2a26; /* exact brown */
+    color: white;
+    padding-left: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* TITLE */
 .title {
-    font-size: 80px;
-    line-height: 1.1;
+    font-family: "Playfair Display", serif;
+    font-size: 90px;
+    line-height: 1.05;
     margin: 0;
+}
+
+.creative {
+    color: #f7c9d4; /* pink */
+}
+
+.portfolio {
+    color: #fcecd6; /* off-white */
 }
 
 /* UI/UX TAG */
 .tag {
     margin-top: 25px;
     display: inline-block;
-    padding: 10px 25px;
-    border: 2px solid white;
-    border-radius: 30px;
-    font-size: 20px;
+    padding: 12px 32px;
+    background: #fcecd6;
+    color: #3b2a26;
+    border-radius: 40px;
+    font-size: 22px;
+    font-weight: 600;
     letter-spacing: 2px;
 }
 
