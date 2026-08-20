@@ -24,10 +24,52 @@
 /* TEXT BLOCK POSITIONING */
 .text-block {
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: left; /* keep the stacked look */
+}
+
+
+/* HEADER NAV */
+.site-nav {
+    font-family: 'Be Vietnam Pro', sans-serif; /* APPLY FONT HERE */
+    position: fixed;          /* stays at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55px;             /* thin strip */
+    background: #fcfcef;      /* white background strip */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;          /* spacing left/right */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* subtle shadow */
+    z-index: 1000;            /* stays above hero */
+}
+
+/* NAME ON LEFT */
+.logo {
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    color: #3b2a26; /* your brown */
+}
+
+/* NAV LINKS ON RIGHT */
+.nav-links {
+    display: flex;
+    gap: 20px; /* closer spacing */
+}
+
+/* INDIVIDUAL LINKS */
+.nav-links a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3b2a26;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #3b2a26;
 }
 
 
