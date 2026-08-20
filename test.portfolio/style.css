@@ -1,149 +1,68 @@
-/* GLOBAL */
-body {
-    margin: 0;
-    background: #ffffff;
-    font-family: "Poppins", sans-serif;
-}
-
-/* HERO SECTION */
-.hero {
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    position: relative;
-}
-
-/* NAME TOP LEFT */
-.name {
-    position: absolute;
-    top: 30px;
-    left: 40px;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: #3b2a26;
-    z-index: 10;
-}
-
-/* LEFT SIDE */
-.left-side {
-    width: 33%;
-    background: #f7c9d4; /* exact pink */
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* CIRCLE IMAGE */
-.circle-image {
-    width: 340px;
-    height: 340px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 10px solid white;
-    position: absolute;
-    right: -170px; /* sits exactly on the split */
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.circle-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* DECORATIVE SMALL CIRCLES */
-.decor {
-    position: absolute;
-    border-radius: 50%;
-}
-
-.decor1 {
-    width: 120px;
-    height: 120px;
-    background: #fcecd6; /* off-white */
-    top: 18%;
-    left: 10%;
-}
-
-.decor2 {
-    width: 70px;
-    height: 70px;
-    background: #f7c9d4; /* pink */
-    top: 65%;
-    left: 20%;
-}
-
-.decor3 {
-    width: 50px;
-    height: 50px;
-    background: #fcecd6;
-    top: 80%;
-    left: 35%;
-}
-
-.decor4 {
-    width: 90px;
-    height: 90px;
-    background: #f7c9d4;
-    top: 40%;
-    left: 5%;
-}
-
-/* RIGHT SIDE */
-.right-side {
-    width: 67%;
-    background: #3b2a26; /* exact brown */
-    color: white;
-    padding-left: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* TITLE */
 .title {
-    font-family: "Playfair Display", serif;
-    font-size: 90px;
-    line-height: 1.05;
+    font-family: 'Playfair Display', serif;
+    font-size: 110px;
+    line-height: 0.9;
     margin: 0;
 }
 
 .creative {
-    color: #f7c9d4; /* pink */
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #fad3e9;
 }
 
 .portfolio {
-    color: #fcecd6; /* off-white */
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;      /* lighter */
+    font-style: italic;    /* matches Canva */
+    padding-left: 80px;      /* slight spacing */
+    font-size: 125px;
+    color: #fcfcef;
 }
 
-/* UI/UX TAG */
-.tag {
-    margin-top: 25px;
-    display: inline-block;
-    padding: 12px 32px;
-    background: #fcecd6;
-    color: #3b2a26;
-    border-radius: 40px;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 2px;
+/* TEXT BLOCK POSITIONING */
+.text-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left; /* keep the stacked look */
 }
 
-/* SCROLLABLE CONTENT BELOW */
-.more-content {
+
+
+
+
+/* Remove default browser spacing */
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff; /* plain background for everything below */
+}
+
+/* HERO SECTION — the split background */
+.hero {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* full screen height */
+}
+
+/* LEFT SIDE — 1/3 pink */
+.left-side {
+    width: 33.33%;
+    background: #fad3e9;
+}
+
+/* RIGHT SIDE — 2/3 brown */
+.right-side {
+    width: 66.66%;
+    background: #401f18;
+    position: relative;
+}
+
+/* SCROLL AREA BELOW */
+.content {
     padding: 80px;
-    background: #fff;
-}
-
-.more-content h2 {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-.more-content p {
-    font-size: 20px;
-    max-width: 600px;
+    background: #fcfcef;
 }
