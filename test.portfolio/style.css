@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    background: #ffffff;
+}
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* LEFT SIDE */
+.left-side {
+    width: 50%;
+    background: #f7c9d4; /* pastel pink */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* DOTS ON LEFT */
+.left-side::before,
+.left-side::after {
+    content: "";
+    position: absolute;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+}
+
+.left-side::before {
+    width: 120px;
+    height: 120px;
+    top: 18%;
+    left: 12%;
+}
+
+.left-side::after {
+    width: 60px;
+    height: 60px;
+    bottom: 18%;
+    left: 28%;
+}
+
+/* CIRCLE IMAGE */
+.circle-image {
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* RIGHT SIDE */
+.right-side {
+    width: 50%;
+    background: #3b2a28; /* dark brown */
+    color: white;
+    padding-left: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* DOTS ON RIGHT */
+.right-side::before,
+.right-side::after {
+    content: "";
+    position: absolute;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+}
+
+.right-side::before {
+    width: 140px;
+    height: 140px;
+    top: 25%;
+    right: 15%;
+}
+
+.right-side::after {
+    width: 70px;
+    height: 70px;
+    bottom: 20%;
+    right: 30%;
+}
+
+/* TEXT */
+.title {
+    font-size: 80px;
+    line-height: 1.1;
+    margin: 0;
+}
+
+/* UI/UX TAG */
+.tag {
+    margin-top: 25px;
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid white;
+    border-radius: 30px;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+/* SCROLLABLE CONTENT BELOW */
+.more-content {
+    padding: 80px;
+    background: #fff;
+}
+
+.more-content h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.more-content p {
+    font-size: 20px;
+    max-width: 600px;
+}
