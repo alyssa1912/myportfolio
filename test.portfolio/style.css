@@ -43,7 +43,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;          /* spacing left/right */
+    
     box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* subtle shadow */
     z-index: 1000;            /* stays above hero */
 }
@@ -54,12 +54,15 @@
     font-weight: 200;
     letter-spacing: 2px;
     color: #3b2a26; /* your brown */
+    white-space: nowrap;
+    padding: 0 40px; /* spacing around the name */
 }
 
 /* NAV LINKS ON RIGHT */
 .nav-links {
     display: flex;
-    gap: 20px; /* closer spacing */
+    gap: 25px; /* closer spacing */
+    margin-left: auto; /* push to the right */
 }
 
 /* INDIVIDUAL LINKS */
