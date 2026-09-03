@@ -5,14 +5,14 @@
     margin: 0;
 }
 
-.creative {
+.alyssa {
     font-family: 'Playfair Display', serif;
     font-weight: 300;
     font-style: normal;
     color: #fad3e9;
 }
 
-.portfolio {
+.pramod {
     font-family: 'Playfair Display', serif;
     font-weight: 400;      /* lighter */
     font-style: italic;    /* matches Canva */
@@ -31,7 +31,7 @@
 }
 
 
-/* HEADER NAV */
+/* HEADER NAV ---------------------------------------------------------------------------*/
 .site-nav {
     font-family: 'Be Vietnam Pro', sans-serif; /* APPLY FONT HERE */
     position: fixed;          /* stays at the top */
@@ -43,6 +43,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    padding: 0;
+    box-sizing: border-box;
     
     box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* subtle shadow */
     z-index: 1000;            /* stays above hero */
@@ -61,8 +64,9 @@
 /* NAV LINKS ON RIGHT */
 .nav-links {
     display: flex;
-    gap: 25px; /* closer spacing */
+    gap: 50px; /* closer spacing */
     margin-left: auto; /* push to the right */
+    padding-right: 20px;
 }
 
 /* INDIVIDUAL LINKS */
@@ -75,7 +79,24 @@
     border-bottom: 2px solid #3b2a26;
 }
 
+.pill {
+    position: absolute;
+    top: 115%;              /* adjust up/down */
+    left: 50%;
+    transform: translateX(-50%);
 
+    background: #fcfcef;   /* your off-white */
+    color: #3b2a26;        /* your brown */
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+
+    padding: 13px 40px;
+    border-radius: 30px;
+    border: 2px solid #fcfcef; /* subtle border */
+}
+
+/* ----------------------------------------------------------------------------------------- */
 
 
 
@@ -111,3 +132,115 @@ body {
     padding: 80px;
     background: #fcfcef;
 }
+
+
+/* ALL DOT CSS IS HERE - DOT BASE STYLE -----------------------------------------------*/ 
+.dot {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    opacity: 0.9;
+}
+
+/* PINK DOT */
+.dot-pink {
+    background: #fad3e9; /* your exact pink */
+}
+/* OFF-WHITE DOT */
+.dot-white {
+    background: #fcfcef; /* your off-white */
+}
+/* BROWN DOT */
+.dot-brown {
+    background: #401f18; /* your brown */
+}
+
+.dot.small {
+    width: 28px;
+    height: 28px;
+}
+
+.dot.medium {
+    width: 46px;
+    height: 46px;
+}
+
+.dot.large {
+    width: 68px;
+    height: 68px;
+}
+
+
+/* POSITION OF PINK DOTS --------------
+top: X% moves the dot up/down, 
+left: X% moves the dot left/right */
+
+.decorative-dots .dot:nth-child(1) {
+    top: 12%;
+    left: 58%;
+}
+.decorative-dots .dot:nth-child(2) {
+    top: 30%;
+    left: 70%;
+}
+.decorative-dots .dot:nth-child(3) {
+    top: 40%;
+    left: 85%;
+}
+.decorative-dots .dot:nth-child(4) {
+    top: 70%;
+    left: 84%;
+}
+.decorative-dots .dot:nth-child(5) {
+    top: 85%;
+    left: 64%;
+}
+.decorative-dots .dot:nth-child(6) {
+    top: 88%;
+    left: 34%;
+}
+.decorative-dots .dot:nth-child(7) {
+    top: 78%;
+    left: 17%;
+}
+.decorative-dots .dot:nth-child(8) {
+    top: 30%;
+    left: 7%;
+}
+.decorative-dots .dot:nth-child(9) {
+    top: 20%;
+    left: 33%;
+}
+.decorative-dots .dot:nth-child(10) {
+    top: 15%;
+    left: 88%;
+}
+
+/* POSITION OF BROWN DOTS --------------------  */
+
+.left-dots .dot:nth-child(1) {
+    top: 23%;
+    left: 20%;
+}
+.left-dots .dot:nth-child(2) {
+    top: 15%;
+    left: 3%;
+}
+.left-dots .dot:nth-child(3) {
+    top: 45%;
+    left: 1%;
+}
+.left-dots .dot:nth-child(4) {
+    top: 65%;
+    left: 15%;
+}
+.left-dots .dot:nth-child(5) {
+    top: 90%;
+    left: 4%;
+}
+.left-dots .dot:nth-child(6) {
+    top: 88%;
+    left: 25%;
+}
+/*------------------------------------------  */
