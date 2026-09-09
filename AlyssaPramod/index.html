@@ -1,84 +1,674 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alyssa Pramod Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Quicksand:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink: #FF6FA5;
+    --pink-soft: #FFC2D9;
+    --purple: #9B6BF2;
+    --purple-soft: #D9C6FF;
+    --peach: #FF9E7D;
+    --peach-soft: #FFD9C7;
+    --yellow: #FFCB4D;
+    --yellow-soft: #FFEBB0;
+    --blue: #5AC8F2;
+    --blue-soft: #C6EEFF;
+    --mint: #4DE0C0;
+    --ink: #3A2E4D;
+    --ink-soft: #7A6E94;
+    --card: rgba(255,255,255,0.82);
+    --shadow: rgba(90, 50, 110, 0.18);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    min-height:100vh;
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    color: var(--ink);
+    background: linear-gradient(150deg, #FFE3EE 0%, #F3E4FF 35%, #E3F3FF 65%, #FFF3DE 100%);
+    overflow-x:hidden;
+    position:relative;
+  }
+  h1,h2,h3,.display{ font-family:'Fraunces', Georgia, serif; color: var(--ink); margin:0; }
+
+  /* floating bubble atmosphere */
+  .blob{ position: fixed; border-radius:50%; filter: blur(50px); opacity:0.55; z-index:0; pointer-events:none; }
+  .blob1{ width:340px; height:340px; background: var(--pink-soft); top:-100px; left:-80px; animation: float1 22s ease-in-out infinite; }
+  .blob2{ width:280px; height:280px; background: var(--blue-soft); top:20%; right:-100px; animation: float2 26s ease-in-out infinite; }
+  .blob3{ width:260px; height:260px; background: var(--yellow-soft); bottom:-80px; left:15%; animation: float3 24s ease-in-out infinite; }
+  .blob4{ width:220px; height:220px; background: var(--purple-soft); bottom:10%; right:10%; animation: float1 20s ease-in-out infinite reverse; }
+  @keyframes float1{ 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(30px, 40px); } }
+  @keyframes float2{ 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(-40px, 30px); } }
+  @keyframes float3{ 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(25px, -35px); } }
+  @media (prefers-reduced-motion: reduce){ .blob{ animation: none !important; } }
+
+  .app{ position:relative; z-index:1; max-width: 920px; margin: 0 auto; padding: 34px 24px 90px; }
+
+  /* nav */
+  nav.tabs{
+    display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+    margin-bottom: 38px;
+  }
+  .tab-btn{
+    all:unset; cursor:pointer;
+    font-family:'Quicksand', sans-serif;
+    font-weight:600; font-size:0.95rem;
+    padding: 11px 22px;
+    border-radius: 999px;
+    color: var(--ink);
+    background: rgba(255,255,255,0.6);
+    border: 2px solid transparent;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .tab-btn:hover{ transform: translateY(-2px); }
+  .tab-btn.active[data-screen="diary"]{ background: linear-gradient(135deg, var(--pink), var(--peach)); color:#fff; box-shadow: 0 8px 18px rgba(255,111,165,0.4); }
+  .tab-btn.active[data-screen="timeline"]{ background: linear-gradient(135deg, var(--purple), var(--pink)); color:#fff; box-shadow: 0 8px 18px rgba(155,107,242,0.4); }
+  .tab-btn.active[data-screen="glossary"]{ background: linear-gradient(135deg, var(--yellow), var(--peach)); color:#fff; box-shadow: 0 8px 18px rgba(255,203,77,0.4); }
+  .tab-btn.active[data-screen="playlist"]{ background: linear-gradient(135deg, var(--blue), var(--mint)); color:#fff; box-shadow: 0 8px 18px rgba(90,200,242,0.4); }
+
+  .screen{ display:none; animation: rise .5s ease; }
+  .screen.active{ display:block; }
+  @keyframes rise{ from{ opacity:0; transform: translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+  h2{ font-size:1.8rem; text-align:center; }
+  .eyebrow-note{ text-align:center; color: var(--ink-soft); font-size:0.9rem; margin: 6px 0 26px; }
+
+  /* forms */
+  .add-form{
+    display:flex; flex-direction:column; gap:10px; margin: 0 auto 34px;
+    background: var(--card); backdrop-filter: blur(6px);
+    border-radius: 22px; padding: 20px 22px;
+    box-shadow: 0 10px 26px var(--shadow);
+    max-width: 560px;
+  }
+  .add-form .row{ display:flex; gap:10px; flex-wrap:wrap; }
+  .add-form input, .add-form textarea{
+    font-family:'Work Sans', sans-serif;
+    border: 2px solid var(--pink-soft);
+    border-radius: 14px;
+    padding: 10px 14px;
+    font-size:0.94rem;
+    background: #fff;
+    color: var(--ink);
+    flex:1; min-width:140px;
+  }
+  .add-form textarea{ min-height:70px; resize:vertical; }
+  .add-form input:focus, .add-form textarea:focus{ outline:2px solid var(--purple); outline-offset:1px; border-color: var(--purple); }
+  .btn{
+    all:unset; cursor:pointer;
+    font-family:'Quicksand', sans-serif; font-weight:700; font-size:0.92rem;
+    padding: 11px 22px; border-radius: 999px; align-self:center;
+    color:#fff;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    transition: transform .15s ease;
+  }
+  .btn:hover{ transform: translateY(-2px) scale(1.02); }
+  .btn:focus-visible{ outline:2px solid var(--ink); outline-offset:2px; }
+
+  .empty{ text-align:center; color: var(--ink-soft); font-style:italic; padding: 20px 4px; }
+
+  /* diary */
+  .diary-entry{
+    background: var(--card); backdrop-filter: blur(6px);
+    border-radius: 20px; padding: 18px 22px; margin: 0 auto 16px; max-width: 560px;
+    box-shadow: 0 8px 20px var(--shadow);
+    border-left: 6px solid var(--pink);
+  }
+  .diary-entry:nth-child(3n+2){ border-left-color: var(--purple); }
+  .diary-entry:nth-child(3n){ border-left-color: var(--blue); }
+  .diary-entry .meta{ display:flex; justify-content:space-between; font-size:0.8rem; color:var(--ink-soft); margin-bottom:8px; }
+  .diary-entry .author{ color: var(--pink); font-weight:700; }
+  .diary-entry p{ margin:0; line-height:1.55; }
+  .del-x{ all:unset; cursor:pointer; color: var(--ink-soft); font-size:0.78rem; }
+  .del-x:hover{ color: var(--pink); }
+
+  /* ---------- TIMELINE: growing bubble path ---------- */
+  .tl-wrap{ position:relative; max-width: 640px; margin: 0 auto; padding: 10px 0 30px; }
+  .tl-line{
+    position:absolute; left:50%; top:0; bottom:0; width:6px; transform: translateX(-50%);
+    background: linear-gradient(to bottom, var(--pink), var(--purple), var(--blue), var(--mint), var(--yellow), var(--pink));
+    background-size: 100% 400%;
+    border-radius: 999px;
+    animation: flow 14s linear infinite;
+  }
+  @keyframes flow{ 0%{ background-position: 0 0; } 100%{ background-position: 0 100%; } }
+  @media (prefers-reduced-motion: reduce){ .tl-line{ animation:none; } }
+
+  .tl-item{ position:relative; display:flex; margin-bottom: 44px; align-items:flex-start; }
+  .tl-item.left{ justify-content: flex-end; padding-right: calc(50% + 30px); }
+  .tl-item.right{ justify-content: flex-start; padding-left: calc(50% + 30px); }
+  .tl-node{
+    position:absolute; left:50%; top:6px; transform: translateX(-50%);
+    width: 26px; height:26px; border-radius:50%;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 12px var(--shadow);
+    z-index:2;
+  }
+  .tl-bubble{
+    position:relative;
+    background: var(--card); backdrop-filter: blur(6px);
+    border-radius: 26px 26px 26px 4px;
+    padding: 16px 20px; max-width: 260px;
+    box-shadow: 0 10px 24px var(--shadow);
+  }
+  .tl-item.left .tl-bubble{ border-radius: 26px 26px 4px 26px; }
+  .tl-date{ font-family:'Quicksand', sans-serif; font-size:0.75rem; font-weight:700; color: var(--purple); }
+  .tl-title{ font-family:'Fraunces', serif; font-size:1.15rem; margin: 3px 0 4px; }
+  .tl-desc{ color: var(--ink-soft); font-size:0.88rem; line-height:1.5; }
+  .tl-del{ position:absolute; top:8px; right:12px; }
+  @media (max-width: 640px){
+    .tl-line{ left: 22px; }
+    .tl-node{ left:22px; }
+    .tl-item.left, .tl-item.right{ justify-content:flex-start; padding-left: 56px; padding-right:0; }
+    .tl-item.left .tl-bubble{ border-radius: 4px 26px 26px 26px; }
+  }
+
+  /* glossary */
+  .glossary-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; max-width:700px; margin: 0 auto; }
+  .term-card{
+    background: var(--card); backdrop-filter: blur(6px);
+    border-radius: 20px; padding: 16px 18px;
+    box-shadow: 0 8px 20px var(--shadow);
+    border-top: 5px solid var(--yellow);
+  }
+  .term-card:nth-child(3n+2){ border-top-color: var(--pink); }
+  .term-card:nth-child(3n){ border-top-color: var(--blue); }
+  .term-card .term{ font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; }
+  .term-card .def{ color: var(--ink-soft); font-size:0.88rem; margin-top:4px; line-height:1.45; }
+  @media (max-width:640px){ .glossary-grid{ grid-template-columns:1fr; } }
+
+  /* playlist wall */
+  .wall{ display:grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap:20px; max-width:760px; margin:0 auto; }
+.cover{
+    position:relative;
+    aspect-ratio:1;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 22px var(--shadow);
+    display:flex;
+    align-items:flex-end;
+    padding:16px;
+    background-size:cover;
+    background-position:center;
+    isolation:isolate;
+}
+
+.cover::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(30,20,40,0.8) 0%,
+        rgba(30,20,40,0.2) 55%,
+        rgba(30,20,40,0) 100%
+    );
+    z-index:0;
+}
+
+.cover .txt{
+    position:relative;
+    z-index:2;
+    color:#fff;
+    text-shadow:0 1px 5px rgba(0,0,0,0.35);
+}
+
+.cover .song{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:0.95rem;
+    line-height:1.2;
+}
+
+.cover .artist{
+    font-size:0.72rem;
+    opacity:0.9;
+    margin-top:3px;
+}
+
+.cover .del-x{
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index:3;
+
+    width:30px;
+    height:30px;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(255,255,255,0.9);
+    color:var(--ink);
+
+    font-family:'Quicksand', sans-serif;
+    font-size:18px;
+    font-weight:700;
+
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+.cover .del-x:hover{
+    background:#fff;
+    color:var(--pink);
+    transform:scale(1.08);
+}
+
+
+  .cover .txt{ position:relative; z-index:1; color:#fff; }
+  .cover .song{ font-family:'Fraunces', serif; font-weight:600; font-size:0.9rem; line-height:1.2; }
+  .cover .artist{ font-size:0.72rem; opacity:0.9; margin-top:2px; }
+  .cover .del-x{ position:absolute; top:10px; right:14px; color: rgba(255,255,255,0.85); z-index:2; }
+
+  ::selection{ background: var(--yellow); color: var(--ink); }
+</style>
 </head>
 <body>
 
-  <nav class="site-nav">
-    <span class="logo">ALYSSA PRAMOD</span>
-    <a href="about.html" class="about-link">ABOUT ME</a>
-    <a href="projects.html" class="about-link">PROJECTS</a>
-    <a href="contact.html" class="about-link">CONTACT</a>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+<div class="blob blob4"></div>
+
+<div class="app">
+  <nav class="tabs">
+    <button class="tab-btn active" data-screen="diary">Diary</button>
+    <button class="tab-btn" data-screen="timeline">Timeline</button>
+    <button class="tab-btn" data-screen="glossary">Glossary</button>
+    <button class="tab-btn" data-screen="playlist">Playlist</button>
   </nav>
 
-  <section class="hero">
-    <h1 class="hero-heading">Designing small, human moments into digital products.</h1>
-    <p class="scroll-cue">SCROLL TO SEE WORK ↓</p>
+  <!-- DIARY -->
+  <section class="screen active" id="screen-diary">
+    <h2>Diary</h2>
+    <div class="eyebrow-note">Little entries about things that happened.</div>
+    <div class="add-form">
+      <div class="row">
+        <input id="d-author" placeholder="Who's writing?" style="max-width:160px;">
+        <input id="d-date" type="date">
+      </div>
+      <textarea id="d-text" placeholder="What happened today..."></textarea>
+      <button class="btn" id="d-add">Add entry</button>
+    </div>
+    <div id="diary-list"></div>
   </section>
 
-  <section class="work-section">
-
-    <a href="family-app.html" class="project-row">
-      <div class="project-media project-media--sage">
-        <span>dashboard mockup</span>
+  <!-- TIMELINE -->
+  <section class="screen" id="screen-timeline">
+    <h2>Timeline</h2>
+    <div class="eyebrow-note">Watch it grow every time you add a milestone.</div>
+    <div class="add-form">
+      <div class="row">
+        <input id="t-title" placeholder="Milestone (e.g. First trip)" style="max-width:220px;">
+        <input id="t-date" type="date">
       </div>
-      <div class="project-info">
-        <p class="project-number">01 — MOBILE APP</p>
-        <h2 class="project-title">ENSEMBLE</h2>
-        <p class="project-desc">Storyboards, dashboard, calendar, and meal planning for two households coordinating one family.</p>
-        <span class="project-cta">View project →</span>
-      </div>
-    </a>
-
-    <hr class="row-divider">
-
-    <a href="berry-and-co.html" class="project-row project-row--reverse">
-      <div class="project-info">
-        <p class="project-number">02 — BRAND + APP</p>
-        <h2 class="project-title">Berry & Co.</h2>
-        <p class="project-desc">A jam brand identity and companion app — palette, logo system, and splash screen.</p>
-        <span class="project-cta">View project →</span>
-      </div>
-      <div class="project-media project-media--terracotta">
-        <span>logo + splash screen</span>
-      </div>
-    </a>
-
-    <hr class="row-divider">
-
-    <a href="social-app.html" class="project-row">
-      <div class="project-media project-media--honey">
-        <span>voting screen</span>
-      </div>
-      <div class="project-info">
-        <p class="project-number">03 — INTERACTION DESIGN</p>
-        <h2 class="project-title">Social planning app</h2>
-        <p class="project-desc">Invite creation, live voting mechanics, and a shared availability screen.</p>
-        <span class="project-cta">View project →</span>
-      </div>
-    </a>
-
-    <hr class="row-divider">
-
-    <a href="butterfly-study.html" class="project-feature">
-      <div class="project-feature-info">
-        <p class="project-number">04 — LIVE SITE</p>
-        <h2 class="project-feature-title">Butterfly collection — hover study</h2>
-        <href="https://alyssa1912.github.io/assignment_3/</a>
-      </div>
-      <span class="pill">view live ↗</span>
-    </a>
-
+      <textarea id="t-desc" placeholder="A little detail about it (optional)"></textarea>
+      <button class="btn" id="t-add">Add milestone</button>
+    </div>
+    <div class="tl-wrap" id="timeline-wrap">
+      <div class="tl-line" id="tl-line" style="display:none;"></div>
+      <div id="timeline-list"></div>
+    </div>
   </section>
 
-  <footer class="closing">
-    <p class="closing-line">Always happy to talk process, pixels, or portfolios!</p>
-    <a href="mailto:alyssa.pramod@gmail.com" class="closing-cta">Say hello →</a>
-  </footer>
+  <!-- GLOSSARY -->
+  <section class="screen" id="screen-glossary">
+    <h2>Glossary</h2>
+    <div class="eyebrow-note">The words and jokes only the two of you would understand.</div>
+    <div class="add-form">
+      <div class="row">
+        <input id="g-term" placeholder="Term or phrase" style="max-width:220px;">
+      </div>
+      <textarea id="g-def" placeholder="What it means / where it came from"></textarea>
+      <button class="btn" id="g-add">Add to glossary</button>
+    </div>
+    <div class="glossary-grid" id="glossary-list"></div>
+  </section>
+
+  <!-- PLAYLIST -->
+  <section class="screen" id="screen-playlist">
+    <h2>Playlist</h2>
+    <div class="eyebrow-note">Add a song and it joins the wall as its own little cover.</div>
+    <div class="add-form">
+      <div class="row">
+        <input id="p-song" placeholder="Song title" style="max-width:220px;">
+        <input id="p-artist" placeholder="Artist" style="max-width:180px;">
+      </div>
+      <button class="btn" id="p-add">Add song</button>
+    </div>
+    <div class="wall" id="playlist-wall"></div>
+  </section>
+
+</div>
+
+<script>
+function getData(key, fallback){
+  try {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : fallback;
+  } catch(e) {
+    console.error('storage get failed', e);
+    return fallback;
+  }
+}
+
+function setData(key, value){
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch(e) {
+    console.error('storage set failed', e);
+  }
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('screen-' + btn.dataset.screen).classList.add('active');
+  });
+});
+
+const bubbleColors = ['#FF6FA5','#9B6BF2','#5AC8F2','#4DE0C0','#FFCB4D','#FF9E7D'];
+
+// ---------- diary ----------
+async function renderDiary(){
+  const entries = await getData('diary-entries', []);
+  const list = document.getElementById('diary-list');
+  if(entries.length === 0){ list.innerHTML = '<div class="empty">No entries yet — write the first one.</div>'; return; }
+  const sorted = [...entries].sort((a,b)=> (b.date||'').localeCompare(a.date||''));
+  list.innerHTML = sorted.map(e => `
+    <div class="diary-entry">
+      <div class="meta">
+        <span><span class="author">${escapeHtml(e.author||'Someone')}</span> · ${formatDate(e.date)}</span>
+        <button class="del-x" data-id="${e.id}">remove</button>
+      </div>
+      <p>${escapeHtml(e.text)}</p>
+    </div>
+  `).join('');
+  list.querySelectorAll('.del-x').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const all = await getData('diary-entries', []);
+      await setData('diary-entries', all.filter(x=>x.id !== btn.dataset.id));
+      renderDiary();
+    });
+  });
+}
+document.getElementById('d-add').addEventListener('click', async ()=>{
+  const author = document.getElementById('d-author').value.trim();
+  const date = document.getElementById('d-date').value;
+  const text = document.getElementById('d-text').value.trim();
+  if(!text) return;
+  const all = await getData('diary-entries', []);
+  all.push({ id: crypto.randomUUID(), author, date, text });
+  await setData('diary-entries', all);
+  document.getElementById('d-author').value='';
+  document.getElementById('d-text').value='';
+  renderDiary();
+});
+
+// ---------- timeline (growing bubble path) ----------
+async function renderTimeline(){
+  const items = await getData('timeline-milestones', []);
+  const list = document.getElementById('timeline-list');
+  const line = document.getElementById('tl-line');
+  if(items.length === 0){
+    line.style.display = 'none';
+    list.innerHTML = '<div class="empty">No milestones yet — add the first one and the timeline will start growing.</div>';
+    return;
+  }
+  line.style.display = 'block';
+  const sorted = [...items].sort((a,b)=> (a.date||'').localeCompare(b.date||''));
+  list.innerHTML = sorted.map((m, i) => {
+    const side = i % 2 === 0 ? 'left' : 'right';
+    const color = bubbleColors[i % bubbleColors.length];
+    return `
+    <div class="tl-item ${side}">
+      <div class="tl-node" style="background:${color};"></div>
+      <div class="tl-bubble">
+        <button class="del-x tl-del" data-id="${m.id}">×</button>
+        <div class="tl-date">${formatDate(m.date)}</div>
+        <div class="tl-title">${escapeHtml(m.title)}</div>
+        ${m.desc ? `<div class="tl-desc">${escapeHtml(m.desc)}</div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+  list.querySelectorAll('.del-x').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const all = await getData('timeline-milestones', []);
+      await setData('timeline-milestones', all.filter(x=>x.id !== btn.dataset.id));
+      renderTimeline();
+    });
+  });
+}
+document.getElementById('t-add').addEventListener('click', async ()=>{
+  const title = document.getElementById('t-title').value.trim();
+  const date = document.getElementById('t-date').value;
+  const desc = document.getElementById('t-desc').value.trim();
+  if(!title) return;
+  const all = await getData('timeline-milestones', []);
+  all.push({ id: crypto.randomUUID(), title, date, desc });
+  await setData('timeline-milestones', all);
+  document.getElementById('t-title').value='';
+  document.getElementById('t-desc').value='';
+  renderTimeline();
+});
+
+// ---------- glossary ----------
+async function renderGlossary(){
+  const terms = await getData('glossary-terms', []);
+  const list = document.getElementById('glossary-list');
+  if(terms.length === 0){ list.innerHTML = '<div class="empty">No entries yet — add your first inside joke.</div>'; return; }
+  const sorted = [...terms].sort((a,b)=> a.term.localeCompare(b.term));
+  list.innerHTML = sorted.map(t => `
+    <div class="term-card">
+      <div class="term">${escapeHtml(t.term)} <button class="del-x" data-id="${t.id}" style="float:right;">×</button></div>
+      <div class="def">${escapeHtml(t.def)}</div>
+    </div>
+  `).join('');
+  list.querySelectorAll('.del-x').forEach(btn=>{
+    btn.addEventListener('click', async (e)=>{
+      e.stopPropagation();
+      const all = await getData('glossary-terms', []);
+      await setData('glossary-terms', all.filter(x=>x.id !== btn.dataset.id));
+      renderGlossary();
+    });
+  });
+}
+document.getElementById('g-add').addEventListener('click', async ()=>{
+  const term = document.getElementById('g-term').value.trim();
+  const def = document.getElementById('g-def').value.trim();
+  if(!term || !def) return;
+  const all = await getData('glossary-terms', []);
+  all.push({ id: crypto.randomUUID(), term, def });
+  await setData('glossary-terms', all);
+  document.getElementById('g-term').value='';
+  document.getElementById('g-def').value='';
+  renderGlossary();
+});
+
+// ---------- playlist wall ----------
+const coverPalettes = [
+  ['#FF6FA5', '#9B6BF2'],
+  ['#5AC8F2', '#4DE0C0'],
+  ['#FFCB4D', '#FF9E7D'],
+  ['#9B6BF2', '#5AC8F2'],
+  ['#FF9E7D', '#FF6FA5'],
+  ['#4DE0C0', '#5AC8F2']
+];
+function hashStr(str){ let h=0; for(let i=0;i<str.length;i++){ h=(h*31+str.charCodeAt(i))>>>0; } return h; }
+
+// ---------- playlist wall ----------
+
+async function getAlbumArtwork(song, artist){
+  try {
+    const searchTerm = encodeURIComponent(`${song} ${artist}`);
+
+    const response = await fetch(
+      `https://itunes.apple.com/search?term=${searchTerm}&entity=song&limit=1`
+    );
+
+    const data = await response.json();
+
+    if(data.results && data.results.length > 0){
+      return data.results[0].artworkUrl100
+        .replace('100x100', '600x600');
+    }
+
+    return null;
+
+  } catch(error) {
+    console.error('Could not find album artwork:', error);
+    return null;
+  }
+}
+
+
+async function renderPlaylist(){
+
+  const songs = await getData('playlist-songs', []);
+
+  const wall = document.getElementById('playlist-wall');
+
+  if(songs.length === 0){
+    wall.innerHTML =
+      '<div class="empty">No songs yet — add your first one.</div>';
+    return;
+  }
+
+  wall.innerHTML = songs.map(s => {
+
+    return `
+      <div class="cover"
+        data-id="${s.id}"
+        style="
+          background-image:
+            url('${s.artwork || ''}');
+        "
+      >
+
+        <button
+          class="del-x"
+          data-id="${s.id}"
+          aria-label="Remove song"
+          title="Remove song"
+        >×</button>
+
+        <div class="txt">
+
+          <div class="song">
+            ${escapeHtml(s.song)}
+          </div>
+
+          <div class="artist">
+            ${escapeHtml(s.artist || '')}
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+  }).join('');
+
+
+  // Delete buttons
+  wall.querySelectorAll('.del-x').forEach(btn => {
+
+    btn.addEventListener('click', async () => {
+
+      const all = await getData('playlist-songs', []);
+
+      const updated = all.filter(
+        x => x.id !== btn.dataset.id
+      );
+
+      await setData('playlist-songs', updated);
+
+      renderPlaylist();
+
+    });
+
+  });
+}
+
+
+// Add new song
+document.getElementById('p-add').addEventListener('click', async () => {
+
+  const song =
+    document.getElementById('p-song').value.trim();
+
+  const artist =
+    document.getElementById('p-artist').value.trim();
+
+
+  if(!song) return;
+
+
+  const button = document.getElementById('p-add');
+
+  button.textContent = 'Finding cover...';
+  button.disabled = true;
+
+
+  // Search for album artwork
+  const artwork =
+    await getAlbumArtwork(song, artist);
+
+
+  const all =
+    await getData('playlist-songs', []);
+
+
+  all.push({
+    id: crypto.randomUUID(),
+    song,
+    artist,
+    artwork
+  });
+
+
+  await setData(
+    'playlist-songs',
+    all
+  );
+
+
+  // Clear inputs
+  document.getElementById('p-song').value = '';
+  document.getElementById('p-artist').value = '';
+
+
+  button.textContent = 'Add song';
+  button.disabled = false;
+
+
+  renderPlaylist();
+
+});
+
+// ---------- utils ----------
+function escapeHtml(str){ const d = document.createElement('div'); d.textContent = str || ''; return d.innerHTML; }
+function formatDate(d){
+  if(!d) return 'undated';
+  const dt = new Date(d + 'T00:00:00');
+  if(isNaN(dt)) return d;
+  return dt.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' });
+}
+
+renderDiary();
+renderTimeline();
+renderGlossary();
+renderPlaylist();
+</script>
 
 </body>
 </html>
