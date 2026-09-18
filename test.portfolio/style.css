@@ -127,11 +127,30 @@ body {
     position: relative;
 }
 
+/* MAIN TEXTS ------------------------------
+
 /* SCROLL AREA BELOW */
 .content {
     padding: 80px;
     background: #fcfcef;
 }
+
+.writing {
+    color: #3b2a26;        /* brown */
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    position: relative;
+}
+
+.subhead {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400; 
+    font-style: italic;
+    font-size: 80px;
+    
+}
+
 
 
 /* ALL DOT CSS IS HERE - DOT BASE STYLE -----------------------------------------------*/ 
@@ -245,13 +264,6 @@ left: X% moves the dot left/right */
 }
 /*------------------------------------------  */
 
-.writing {
-    color: #3b2a26;        /* brown */
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-size: 18px;
-    font-weight: 100;
-    position: relative;
-}
 
 /* BINDER IMAGE ------------------------------ */
 
