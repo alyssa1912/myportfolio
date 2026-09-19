@@ -291,6 +291,12 @@ left: X% moves the dot left/right */
     height: 100%;
 }
 
+.binder-tilted {
+    transform: translate(-50%, -50%) rotate(-4deg);
+    top: 52%;
+    left: 40%;
+}
+
 /* TEXT ON TOP OF BINDER */
 .about-text {
     position: absolute;
