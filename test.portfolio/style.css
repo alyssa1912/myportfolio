@@ -289,11 +289,14 @@ left: X% moves the dot left/right */
 .binder-img {
     width: 100%;
     height: 100%;
+    
+    box-shadow: 30px 20px 40px rgba(0,0,0,0.25);
+    border: none;
 }
 
 .binder-tilted {
     transform: translate(-50%, -50%) rotate(-4deg);
-    top: 52%;
+    top: 72%;
     left: 40%;
 }
 
@@ -307,4 +310,13 @@ left: X% moves the dot left/right */
 
     top: 10%;      /* move up/down */
     left: 8%;     /* move left/right */
+}
+
+.bgimg {
+    background-image: url("img/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
 }
